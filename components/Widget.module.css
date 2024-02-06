@@ -1,0 +1,12 @@
+.liveChatOverlay {
+  height: 85px;
+  width: 85px;
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  border: 0px none;
+  margin-top: 0px;
+  box-shadow: rgba(36, 36, 36, 0.1) 0px 8px 24px 0px, rgba(71, 69, 123, 0.04) 0px 1px 4px 0px;
+  z-index: 5;
+  cursor: pointer;
+}
