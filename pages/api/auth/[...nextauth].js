@@ -4,7 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 const baseUrl = process.env.VERCEL_URL
   ? 'https://' + process.env.VERCEL_URL
   : 'http://localhost:3000';
-
+console.log(baseUrl);
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -28,25 +28,28 @@ export const authOptions = {
         // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
         // You can also use the `req` object to obtain additional parameters
         // (i.e., the request IP address)
+        try {
+          const res = await fetch(`${baseUrl}/api/jwt-zendesk`, {
+            method: 'POST',
+            body: JSON.stringify({
+              email: 'smith@na.com',
+              name: 'Smith'
+            }),
+            headers: { 'Content-Type': 'application/json' }
+          });
+          const token = await res.json();
+          if (res.ok && token) {
+            return {
+              id: 1,
+              name: 'Smith',
+              email: 'smith@na.com',
+              zdMessagingToken: token
+            };
+          }
+        } catch (e) {
+          // If no error and we have user data, return it
 
-        const res = await fetch(`${baseUrl}/api/jwt-zendesk`, {
-          method: 'POST',
-          body: JSON.stringify({
-            email: 'smith@na.com',
-            name: 'Smith'
-          }),
-          headers: { 'Content-Type': 'application/json' }
-        });
-        const token = await res.json();
-
-        // If no error and we have user data, return it
-        if (res.ok && token) {
-          return {
-            id: 1,
-            name: 'Smith',
-            email: 'smith@na.com',
-            zdMessagingToken: token
-          };
+          console.log('failed to get jwt zd', e);
         }
         // Return null if user data could not be retrieved
         return null;
