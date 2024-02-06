@@ -34,7 +34,7 @@ Currently the token EXP (expiry) is set to 30 seconds only for testing purposes.
 
 ## The Widget Component
 
-To authenticate the user, you can refer to the `<Widget/>` component.
+To authenticate the user, you can refer to the `<Widget/>`g component.
 This code particular signs the user in by callback using the Token
 
     zE('messenger', 'loginUser', function (callback) {

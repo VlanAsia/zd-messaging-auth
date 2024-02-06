@@ -13,32 +13,32 @@ export default function Home() {
 
   return (
     <div>
-      <header class="bg-white p-3 border-b-[1px]">
-        <div class="container px-4  mx-auto flex items-center justify-between">
+      <header className="bg-white p-3 border-b-[1px]">
+        <div className="container flex items-center justify-between px-4 mx-auto">
           <img
             alt="Hubris logo"
-            class="h-8"
+            className="h-8"
             src="https://www.bursamalaysia.com/sites/5bb54be15f36ca0af339077a/theme/images/logo.png?1706269554"
           />
-          <nav class="flex space-x-24 text-[#060C5C] font-semibold">
-            <a class="hover:underline" href="#" rel="ugc">
+          <nav className="flex space-x-24 text-[#060C5C] font-semibold">
+            <a className="hover:underline" href="#" rel="ugc">
               Market
             </a>
-            <a class="hover:underline" href="#" rel="ugc">
+            <a className="hover:underline" href="#" rel="ugc">
               Knowledge
             </a>
-            <a class="hover:underline" href="#" rel="ugc">
+            <a className="hover:underline" href="#" rel="ugc">
               Support
             </a>
           </nav>
-          <div class="flex items-center space-x-4">
+          <div className="flex items-center space-x-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              class="text-white"
+              className="text-white"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.3-4.3"></path>

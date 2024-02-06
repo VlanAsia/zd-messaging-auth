@@ -6,7 +6,7 @@ export const LoginButton = () => {
       <>
         Signed in as {session.user.email} <br />
         <button
-          class="inline-flex items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#E41C2D] ring-1  ring-[#E41C2D] hover:bg-gray-50"
+          className="inline-flex items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#E41C2D] ring-1  ring-[#E41C2D] hover:bg-gray-50"
           onClick={() => {
             zE('messenger', 'logoutUser');
             signOut();
@@ -21,7 +21,7 @@ export const LoginButton = () => {
     <>
       Not signed in <br />
       <button
-        class="inline-flex items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#E41C2D] ring-1  ring-[#E41C2D] hover:bg-gray-50"
+        className="inline-flex items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#E41C2D] ring-1  ring-[#E41C2D] hover:bg-gray-50"
         onClick={() => signIn('creds')}
       >
         Sign in
