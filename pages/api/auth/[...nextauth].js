@@ -4,7 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 const baseUrl = process.env.VERCEL_URL
   ? 'https://' + process.env.VERCEL_URL
   : 'http://localhost:3000';
-console.log(baseUrl);
+
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
