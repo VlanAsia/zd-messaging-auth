@@ -6,7 +6,7 @@ export default function handler(req, res) {
     const payload = {
       name: name,
       email: email,
-      exp: Math.floor(new Date().getTime() / 1000.0) + 10,
+      exp: Math.floor(new Date().getTime() / 1000.0) + 30, // This in seconds
       external_id: email,
       scope: 'user'
     };

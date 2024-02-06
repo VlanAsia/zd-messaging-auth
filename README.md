@@ -1,6 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project using Pages Router.
+Sample project to show how to add the Zendesk Messaging widget to a Next.js project and to authenticate the user.
 
-## Getting Started
+## Running the Dev server
 
 First, run the development server:
 
@@ -16,25 +17,55 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Notes
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Kindly use this project as a reference point on how to
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Generate the JWT Authentication Token for the Zendesk Messaging Widget
+2. Call the Zendesk API to pass the JWT Token to the widget to authenticate the user.
+3. Use your own implementation to implement these concepts.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Some Concepts
 
-## Learn More
+This is using NextAuth.js as the authentication layer in order to save the JWT Token in the session.
+This JWT Token is then passed to the Zendesk Messaging Widget through the user session token.
+The user authenticate is hard-coded to jsmith@na.com always. You can change this in your own implementation.
+Currently the token EXP (expiry) is set to 30 seconds only for testing purposes.
 
-To learn more about Next.js, take a look at the following resources:
+## The Widget Component
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To authenticate the user, you can refer to the <Widget/> component.
+This code particular signs the user in by callback using the Token
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    zE('messenger', 'loginUser', function (callback) {
+          callback(zdToken);
+        });
 
-## Deploy on Vercel
+## Generating the JWT Token
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Refer to /api/jwt-zendesk route.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Set custom Expiry timings
+
+You can set custom expiry timings in the `exp` property when generating the JWT Token at the api route.
+
+    const payload = {
+    name: name,
+    email: email,
+    exp: Math.floor(new Date().getTime() / 1000.0) + 30, // This in seconds
+    external_id: email,
+    scope: 'user'
+    };
+
+## Extras
+
+This project also has the Custom Launcher to Launch the widget if you wish to use your own logo.
+The widget on the left is using the Custom Launcher to launch the widget.
+
+## Learn More / References
+
+To learn more, these are the documentation from Zendesk
+
+- [Messaging Web Authentication Concept](https://support.zendesk.com/hc/en-us/articles/4411666638746-Authenticating-end-users-in-messaging-for-the-Web-Widget-and-mobile-SDK) - The concept for this Zendesk Web Messaging Auth.
+- [Step-by-Step](https://developer.zendesk.com/documentation/zendesk-web-widget-sdks/sdks/web/enabling_auth_visitors/)
+- [Messaging Web Authentication API](https://developer.zendesk.com/api-reference/widget-messaging/web/authentication/) - Zendesk Web Authentication Messaging API.
