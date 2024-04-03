@@ -29,11 +29,11 @@ export const authOptions = {
         // You can also use the `req` object to obtain additional parameters
         // (i.e., the request IP address)
         try {
-          const res = await fetch(`${baseUrl}/api/jwt-zendesk`, {
+          const res = await fetch(`${baseUrl}/api/auth-chat-zendesk`, {
             method: 'POST',
             body: JSON.stringify({
               email: 'smith@na.com',
-              name: 'Smith'
+              name: 'Smith (Example User)'
             }),
             headers: { 'Content-Type': 'application/json' }
           });
@@ -41,7 +41,7 @@ export const authOptions = {
           if (res.ok && token) {
             return {
               id: 1,
-              name: 'Smith',
+              name: 'Smith (Example User)',
               email: 'smith@na.com',
               zdMessagingToken: token
             };

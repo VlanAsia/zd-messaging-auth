@@ -43,7 +43,7 @@ This code particular signs the user in by callback using the Token
 
 ## Generating the JWT Token
 
-Refer to /api/jwt-zendesk route.
+Refer to /api/auth-chat-zendesk route.
 
 ## Set custom Expiry timings
 

@@ -4,7 +4,7 @@ export const LoginButton = () => {
   if (session) {
     return (
       <>
-        Signed in as {session.user.email} <br />
+        Signed in as {session.user.name} <br />
         <button
           className="inline-flex items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#E41C2D] ring-1  ring-[#E41C2D] hover:bg-gray-50"
           onClick={() => {

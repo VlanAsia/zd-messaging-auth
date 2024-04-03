@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import { Widget } from '@/components/Widget';
 import { LoginButton } from '@/components/LoginButton';
+import { LoginZendeskGuide } from '@/components/LoginZendeskGuide';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -45,6 +46,7 @@ export default function Home() {
             </svg>
 
             <LoginButton />
+            {session ? <LoginZendeskGuide /> : <div />}
           </div>
         </div>
       </header>

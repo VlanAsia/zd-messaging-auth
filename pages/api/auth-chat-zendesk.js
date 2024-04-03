@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { name, email } = req.body;
     const payload = {
@@ -8,7 +8,8 @@ export default function handler(req, res) {
       email: email,
       exp: Math.floor(new Date().getTime() / 1000.0) + 30, // This in seconds
       external_id: email,
-      scope: 'user'
+      scope: 'user',
+      email_verified: true
     };
 
     const token = jwt.sign(payload, process.env.ZD_MESSAGING_SECRET, {
