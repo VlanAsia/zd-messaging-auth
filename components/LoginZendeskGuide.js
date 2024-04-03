@@ -7,6 +7,7 @@ export const LoginZendeskGuide = () => {
 
   const handleLogin = async (event) => {
     try {
+      event.preventDefault();
       // Assuming you have an API endpoint for authentication that returns a JWT
       const response = await fetch('/api/guide-zendesk');
 
