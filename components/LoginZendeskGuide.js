@@ -12,7 +12,7 @@ export const LoginZendeskGuide = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('client jwt', data);
+
         inputRef.current.value = data;
         formRef.current.submit();
       } else {
