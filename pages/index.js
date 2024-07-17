@@ -21,17 +21,7 @@ export default function Home() {
             className="h-8"
             src="https://www.bursamalaysia.com/sites/5bb54be15f36ca0af339077a/theme/images/logo.png?1706269554"
           />
-          <nav className="flex space-x-24 text-[#060C5C] font-semibold">
-            <a className="hover:underline" href="#" rel="ugc">
-              Market
-            </a>
-            <a className="hover:underline" href="#" rel="ugc">
-              Knowledge
-            </a>
-            <a className="hover:underline" href="#" rel="ugc">
-              Support
-            </a>
-          </nav>
+          <nav className="flex space-x-24 text-[#060C5C] font-semibold"></nav>
           <div className="flex items-center space-x-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +36,8 @@ export default function Home() {
             </svg>
 
             <LoginButton />
-            {session ? <LoginZendeskGuide /> : <div />}
+            {/* Not in scope currently
+            {session ? <LoginZendeskGuide /> : <div />}*/}
           </div>
         </div>
       </header>

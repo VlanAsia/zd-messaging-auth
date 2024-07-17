@@ -53,7 +53,7 @@ export const Widget = ({ zdToken }) => {
   return (
     <>
       <Script
-        src="https://static.zdassets.com/ekr/snippet.js?key=2f0acab0-2e20-434d-9401-3f44169e7879"
+        src="https://static.zdassets.com/ekr/snippet.js?key=06d6199f-bb20-47d2-af53-2977ab056bf7"
         id="ze-snippet"
       />
 
